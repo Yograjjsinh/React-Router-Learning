@@ -10,38 +10,38 @@ import Contact from "./Components/Contact/Contact.jsx";
 import User from "./Components/User/User.jsx";
 import Github, { githubInfoLoader } from "./Components/Github/Github.jsx";
 
-const router=createBrowserRouter([
-  {
-    path:'/',
-    element:<Layout/>,
-    children:[
-      {
-        path:"",
-        element:<Home/>
-      },
-      {
-        path:"About",
-        element:<About/>
-      },
-      {
-        path:"Contact",
-        element:<Contact/>
-      },
-      {
-        path:"User/:userid",
-        element:<User/>
-      },
-      {
-        path:"Github",
-        element:<Github />,
-        loader:githubInfoLoader
-        
-      }
-
-      
-    ]
-  }
-])
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          path: "",
+          element: <Home />,
+        },
+        {
+          path: "About",
+          element: <About />,
+        },
+        {
+          path: "Contact",
+          element: <Contact />,
+        },
+        {
+          path: "User/:userid",
+          element: <User />,
+        },
+        {
+          path: "Github",
+          element: <Github />,
+          loader: githubInfoLoader,
+        },
+      ],
+    },
+  ],
+  { basename: "/React-Router-Learning" },
+);
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router} />
